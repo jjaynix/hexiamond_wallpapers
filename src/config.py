@@ -1,0 +1,10 @@
+ADMISSION_RULE = 'same_family'
+SEARCH_PROFILES = [(1, 18)]
+QUICK_PROFILES = [(1, 6)]
+OFFSET_PROFILES = [(2, 9), (3, 4), (4, 3)]
+TRANSITIVE_MAX_TILES = 12
+SOLUTION_CAP = 300000
+RESULTS_PATH = 'artifacts/study_results.json'
+REPORT_PATH = 'artifacts/wallpaper_group_report.md'
+CACHE_DIR = 'artifacts/cache'
+APP_DATA_PATH = 'webapp/data.js'

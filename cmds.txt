@@ -1,0 +1,36 @@
+pip install matplotlib pillow pytest          # numpy comes with matplotlib; the search itself needs nothing
+
+# run the study (resumable; results cached in artifacts/cache)
+python run_full_study.py                      # full study  (under a minute on 1 core)
+python run_full_study.py --quick              # ~10 s sanity run
+python run_full_study.py --with-offsets       # ALSO half/third/quarter-grid offsets (outside the adopted definitions)
+python run_full_study.py --workers 8
+
+# webapp
+python export_app_data.py                     # writes webapp/data.js from artifacts/study_results.json
+python -m http.server 8000 --directory webapp # open http://localhost:8000
+
+<<<<<<< HEAD
+# animations
+python render_animation.py 8 p6m 3            # shape index, group, rings
+
+# tests (about 10 s)
+python -m pytest tests -q
+
+# paper-format table + comparison with the paper's Table 4
+python admitted_table.py
+
+# independently re-check ANY data.js (exact tiling + true symmetry group of every row)
+python -m tools.check_data_js webapp/data.js
+
+# independent geometric verification of a data file (float geometry + classical flowchart)
+python -m tools.geometric_check webapp/data.js
+
+# headless webapp test (needs: npm install jsdom)
+node tools/webapp_smoke_test.js
+=======
+python run_full_study.py
+python export_app_data.py
+
+open index.html for the visualizer
+>>>>>>> 7d39244d208ed1311d90cb6b682e809045a6ced0
